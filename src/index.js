@@ -56,6 +56,11 @@ class Asher {
                 "Hey! My name is Asher, I'm here to help! How can I help?",
                 "Greetings to you, I am Asher. How can I help today?"
             ],
+            whatToSay: [
+                "I'm not sure how to respond to that haha",
+                "I wasn't trained for this specific thing, maybe try being more vague?",
+                "I'm not sure I can help you with that?"
+            ],
             okay: [
                 "Okay",
                 "OK",
@@ -166,6 +171,8 @@ class Asher {
                     await this.sendMessage("understandingSuicidal");
                     this.changeStage(1);
                     this.setOptions(["Yes", "No"])
+                } else {
+                    await this.sendMessage("whatToSay")
                 }
                 break;
 
@@ -202,7 +209,7 @@ class Asher {
                     await this.sendMessage("coping");
                     await this.sendMessage("help");
                     this.setOptions(["Yes", "No"])
-                    await this.changeStage(4);
+                    this.changeStage(4);
                 }
                 break;
 
