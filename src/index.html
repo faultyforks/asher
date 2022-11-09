@@ -5,15 +5,21 @@
     <title>Asher</title>
     <link href="output.css" rel="stylesheet" type="text/css">
     <script src="index.js" type="application/javascript"></script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
-<div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
-    <div class="flex flex-col flex-grow h-0 p-4 overflow-auto" id="messages"></div>
-    <div class="bg-gray-300 p-4">
+<body class="flex flex-col items-center justify-center w-screen min-h-screen bg-fuchsia-300 text-gray-800 p-10">
+<audio hidden id="notification" preload="none" src="ping.mp3"></audio>
+<div class="flex flex-col flex-grow w-full max-w-xl bg-fuchsia-300 shadow-xl rounded-lg overflow-hidden">
+    <div class="flex flex-col flex-grow h-0 p-4 overflow-auto bg-fuchsia-300" id="messages"></div>
+    <p class="hidden bg-fuchsia-400 text-gray-400" id="typing">Asher is typing...</p>
+    <div class="bg-fuchsia-300 p-4">
         <form id="userInput">
             <input class="flex items-center h-10 w-full rounded px-3 text-sm" id="userInputBox"
                    placeholder="Type your message…" type="text">
-            <button type="submit">Send</button>
         </form>
     </div>
 </div>
@@ -21,17 +27,17 @@
     const inputBox = document.getElementById("userInputBox")
     const sentTemplate = (input) => `<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
             <div>
-                <div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+                <div class="bg-fuchsia-200 text-black p-3 rounded-l-lg rounded-br-lg">
                     <p class="text-sm">${input}</p>
                 </div>
             </div>
-            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white"></div>
         </div>`;
 
     const receivedTemplate = (input) => `<div class="flex w-full mt-2 space-x-3 max-w-xs">
-            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-white"></div>
             <div>
-                <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                <div class="bg-white p-3 rounded-r-lg rounded-bl-lg">
                     <p class="text-sm">${input}</p>
                 </div>
             </div>
@@ -45,6 +51,7 @@
     }
 
     const asher = new Asher()
+    asher.notificationObject = document.getElementById("notification")
 
     asher.sendMessage("introduction");
     document.getElementById("userInput").onsubmit = (e) => {
