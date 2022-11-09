@@ -11,15 +11,16 @@
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center w-screen min-h-screen bg-fuchsia-300 text-gray-800 p-10">
+<body class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-800 text-gray-800 p-10">
 <audio hidden id="notification" preload="none" src="ping.mp3"></audio>
 <div class="flex flex-col flex-grow w-full max-w-xl bg-fuchsia-300 shadow-xl rounded-lg overflow-hidden">
-    <div class="flex flex-col flex-grow h-0 p-4 overflow-auto bg-fuchsia-300" id="messages"></div>
-    <p class="hidden bg-fuchsia-400 text-gray-400" id="typing">Asher is typing...</p>
-    <div class="bg-fuchsia-300 p-4">
+    <div class="flex flex-col flex-grow h-0 p-4 overflow-auto bg-stone-800" id="messages"></div>
+    <p class="hidden bg-stone-800 text-white p-4" id="typing">Asher is typing...</p>
+    <div class="bg-yellow-300 p-4">
         <form id="userInput">
-            <input class="flex items-center h-10 w-full rounded px-3 text-sm" id="userInputBox"
+            <input class="flex items-center h-10 w-full rounded px-3 text-sm bg-yellow-300" id="userInputBox"
                    placeholder="Type your message…" type="text">
+            <button hidden type="submit"></button>
         </form>
     </div>
 </div>
@@ -27,7 +28,7 @@
     const inputBox = document.getElementById("userInputBox")
     const sentTemplate = (input) => `<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
             <div>
-                <div class="bg-fuchsia-200 text-black p-3 rounded-l-lg rounded-br-lg">
+                <div class="bg-yellow-400 text-black p-3 rounded-l-lg rounded-br-lg">
                     <p class="text-sm">${input}</p>
                 </div>
             </div>
@@ -46,7 +47,7 @@
     const appendBody = (inputContent) => {
         const messagesDiv = document.getElementById("messages")
         messagesDiv.innerHTML += inputContent
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        messagesDiv.scrollTop = messagesDiv.scrollHeight * 2;
 
     }
 

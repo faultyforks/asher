@@ -99,8 +99,8 @@ class Asher {
                 "I will help you get some coping skills then!"
             ],
             copingFailed: [
-                "It is my understanding that these coping skills didn't work, yes?",
-                "None of these worked for you?"
+                "It is my understanding that these coping skills didn't work, did I help?",
+                "None of these worked for you? Did I help?"
             ],
             coping: [
                 "Have you tried squeezing a stress toy? For some people, stress toys provide excellent outlets for... well... stress.",
@@ -205,7 +205,6 @@ class Asher {
                     await this.sendMessage("isThatAll");
                     this.setOptions(["Yes", "No"])
                 } else if (self.helpWith === "suicide" && (this.stringContains("no") || this.stringContains("okay"))) {
-                    await this.sendMessage("getCoping");
                     await this.sendMessage("coping");
                     await this.sendMessage("help");
                     this.setOptions(["Yes", "No"])
@@ -221,24 +220,32 @@ class Asher {
                         this.setOptions(["Yes", "No"])
                     } else {
                         await this.sendMessage("copingFailed");
-                        await this.sendMessage("suicide2");
-                        await this.sendMessage("suicidePreventionPlan");
-                        await this.sendMessage("preventionPlanDescribe")
-                        await this.changeStage(5);
+                        this.setOptions(["Yes", "No"])
+                        this.changeStage(5);
                     }
                 } else if (self.helpWith === "suicide" && this.stringContains("yes")) {
                     await this.sendMessage("isThatAll")
 
                 }
-                break
+                break;
 
             case 5: // Coping skills didn't work - try something else
-                if (self.sayings.coping.length > 0) {
-                    await this.sendMessage("suicidePreventionPlan", true, "okay");
+                if (self.helpWith === "suicide" && this.stringContains("no")) {
+                    await this.sendMessage("suicide2");
+                    await this.sendMessage("preventionPlanDescribe");
+                    this.setOptions(["OK"])
+                } else if (self.helpWith === "suicide" && this.stringContains("yes")) {
+                    await this.sendMessage("isThatAll")
                 } else {
-                    await this.sendMessage("help");
-                    this.changeStage(6);
+                    if (self.sayings.suicidePreventionPlan.length > 0) {
+                        await this.sendMessage("suicidePreventionPlan", true, "okay");
+                    } else {
+                        await this.sendMessage("help");
+                        this.changeStage(6);
+                    }
                 }
+                break;
+
         }
     }
 
@@ -258,7 +265,7 @@ class Asher {
             prefaceRandom = Math.floor(Math.random() * prefaceTarget.length);
         }
 
-        self.typingObject.hidden = false
+        self.typingObject.classList.toggle('hidden')
         await delay(target[random].length * 15);
         if (preface !== "") {
             appendBody(receivedTemplate(prefaceTarget[prefaceRandom] + " " + target[random]));
@@ -268,7 +275,7 @@ class Asher {
         if (remove) self.sayings[messageCategory].splice(random, 1);
         self.notificationObject.pause()
         self.notificationObject.play()
-        self.typingObject.hidden = true
+        self.typingObject.classList.toggle('hidden')
     }
 
     changeStage(number) {
@@ -282,13 +289,13 @@ class Asher {
     setOptions(options) {
         if (options === "textbox") {
             document.getElementById("userInput").innerHTML =
-                `<input class="flex items-center h-10 w-full rounded px-3 text-sm" id="userInputBox"
-                       placeholder="Type your message…" type="text">`
+                `<input class="flex items-center h-10 w-full rounded px-3 text-sm bg-yellow-300" id="userInputBox"
+                       onsubmit='e.preventDefault();if (inputBox.value !== "") {asher.received(inputBox.value);inputBox.value = "";}' placeholder="Type your message…" type="text">`
         } else {
             document.getElementById("userInputBox").classList.toggle("hidden")
             for (const option of options) {
                 document.getElementById("userInput").innerHTML += `
-                <button class="btn bg-fuchsia-400 text-gray-100 p-1 px-3 rounded-full" 
+                <button class="btn bg-yellow-500 text-gray-100 p-1 px-3 rounded-full" 
                 onclick="asher.received('${option}'); asher.setOptions('textbox')">${option}</button>
                 `
             }
