@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asher</title>
+    <link href="output.css" rel="stylesheet" type="text/css">
+    <script src="index.js" type="application/javascript"></script>
+</head>
+<body class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
+<div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
+    <div class="flex flex-col flex-grow h-0 p-4 overflow-auto" id="messages"></div>
+    <div class="bg-gray-300 p-4">
+        <form id="userInput">
+            <input class="flex items-center h-10 w-full rounded px-3 text-sm" id="userInputBox"
+                   placeholder="Type your message…" type="text">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
+<script>
+    const inputBox = document.getElementById("userInputBox")
+    const sentTemplate = (input) => `<div class="flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end">
+            <div>
+                <div class="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+                    <p class="text-sm">${input}</p>
+                </div>
+            </div>
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+        </div>`;
+
+    const receivedTemplate = (input) => `<div class="flex w-full mt-2 space-x-3 max-w-xs">
+            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+            <div>
+                <div class="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                    <p class="text-sm">${input}</p>
+                </div>
+            </div>
+        </div>`
+
+    const appendBody = (inputContent) => {
+        const messagesDiv = document.getElementById("messages")
+        messagesDiv.innerHTML += inputContent
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    }
+
+    const asher = new Asher()
+
+    asher.sendMessage("introduction");
+    document.getElementById("userInput").onsubmit = (e) => {
+        e.preventDefault()
+        if (inputBox.value !== "") {
+            asher.received(inputBox.value)
+            inputBox.value = "";
+        }
+    }
+</script>
+</body>
+</html>
