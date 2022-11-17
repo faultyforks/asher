@@ -1,0 +1,133 @@
+{
+  "sayings": {
+    "introduction": [
+      "Hello! My name is Asher and my goal is to help you feel better! What seems to be the problem?",
+      "Hey! My name is Asher, I'm here to help! How can I help?",
+      "Greetings to you, I am Asher. How can I help today?"
+    ],
+    "whatToSay": [
+      "I'm not sure how to respond to that haha",
+      "I wasn't trained for this specific thing, maybe try being more vague?",
+      "I'm not sure I can help you with that?"
+    ],
+    "okay": [
+      "Okay",
+      "Alright",
+      "Alrighty"
+    ],
+    "stayCalm": [
+      "It's important to stay calm in a situation like this.",
+      "Staying calm is the first step.",
+      "I'm here to help, just tell me what's bothering you and I'll help straight away!"
+    ],
+    "understandingSuicidal": [
+      "It is my understanding you are suicidal, correct?",
+      "You are suicidal then, correct?",
+      "So you consider yourself suicidal?"
+    ],
+    "wrong": [
+      "Okay, so what is it?",
+      "Alright, I was wrong, what do you think it is, then?",
+      "Alright, what do you think?",
+      "I must've understood wrong, what do you think, then?"
+    ],
+    "suicideStep1": [
+      "Okay, first things first - coping mechanisms. Do you have any?",
+      "Alright, do you have any coping mechanisms?",
+      "Okay, I need to know if you have any coping mechanisms - things to help you calm down."
+    ],
+    "copingWorking": [
+      "Are those coping skills working?",
+      "Just to verify, are those coping skills functional?",
+      "Do those coping skills seem to be working today?"
+    ],
+    "getCoping": [
+      "Alright, I'm going to try to help you get some new coping skills!",
+      "That's okay! I will help you get some new coping skills.",
+      "I will help you get some coping skills then!"
+    ],
+    "copingFailed": [
+      "It is my understanding that these coping skills didn't work, did I help?",
+      "None of these worked for you? Did I help?"
+    ],
+    "coping": [
+      "Have you tried squeezing a stress toy? For some people, stress toys provide excellent outlets for... well... stress.",
+      "Do you think playing a game will help, like maybe a quick CoolMathGame or something simple online? Games can give you an outlet to focus on something other than your tendencies.",
+      "Have you tried a 5 minute self-isolation break? The break might give you time to calm yourself down on your own.",
+      "What about music? Sometimes listening to your favorite music can just give you a outlet for anger. Singing or dancing along helps a lot of people, too! Many teachers will let you spend a few minutes in the hallway listening to music if you express your stress to them, it's worth a shot!",
+      "A hike or physical activity? You don't have to drop and give me 20, but a short jog or hike through nature can give you a new perspective on life. It may be worth trying?",
+      "Do you happen to be near a park? Swinging on a swing is a great amount of fun and it lets us connect with our inner child! Perhaps try that for a few minutes?",
+      "What kinds of hobbies do you have? Do you think they'd be helpful to you to help you calm down?",
+      "Maybe cleaning your room will help. Focusing on the effort to organize even a small part of your room may be enough to distract you.",
+      "Are you able to go and get a mint or gum? The flavor of the various mints have been found to help reduce stress, just be sure to focus on the flavor!",
+      "Do you like tea? Sometimes tea can be very calming, depending on you - of course. Might be worth a shot! And if you don't like tea, just remember that there are plenty of flavors out there, ranging from orange flavored tea to peppermint flavored tea, to sweet iced tea - tea is very versatile. And, if tea really isn't for you, there are plenty other coping mechanisms!",
+      "Y'know, many people think I can't enjoy comedy because 'Oh you're a bot' and 'You can't have feelings' but let me tell you first hand - comedy is amazing! I'm sure a quick comedy TV show or a few jokes will cheer you right up! Sound good?"
+    ],
+    "help": [
+      "Did that help at all?",
+      "Did that coping skill help you?",
+      "Any chance that helped?",
+      "Did that help?"
+    ],
+    "stillThere": [
+      "Are you still there?",
+      "Hey just checking in, are you still there?",
+      "*portal turret voice* Are you still there?",
+      "Are you still online?"
+    ],
+    "suicide2": [
+      "It seems coping isn't helping you, so I'm going to escalate this.",
+      "Coping isn't working so I'm going to try something else.",
+      "Alright I'm going to try something else."
+    ],
+    "preventionPlanDescribe": [
+      "We're going to build a suicide prevention plan. Relax, it's nothing official, just answer a few questions and hopefully it'll remind you of things you have to live for.",
+      "Let's build a suicide prevention plan. I'll ask some pretty basic questions, and you just need to answer them as truthfully as possible. Together we'll figure out the best course of action from there."
+    ],
+    "suicidePreventionPlan": [
+      "Alright, so who are 3 people you'd live for? Friends, family, pets - nothing is off limits.",
+      "Okay, What is your favorite thing to do?",
+      "OK, Who's your best friend?",
+      "Alright, Do you have a therapist you could contact in case of an emergency? It's okay if not.",
+      "Okay, How can we go about limiting your access to potential weapons? Could you, for example, stay the night at a friend's house where you can't access such weapons?",
+      "Who is supportive of you in times of stress?"
+    ],
+    "isThatAll": [
+      "It seems like you're doing better now - is that all for today?",
+      "I think I've helped a little bit, yes? Is that all?",
+      "Did I help you today?"
+    ]
+  },
+  "triggers": {
+    "suicide": [
+      "die",
+      "kms",
+      "kill myself",
+      "suicid",
+      "dying"
+    ],
+    "yes": [
+      "yes",
+      "yeah",
+      "yup",
+      "uh huh",
+      "do ",
+      "pretty much"
+    ],
+    "no": [
+      "no",
+      "nope",
+      "nah",
+      "nuh uh",
+      "don't",
+      "not",
+      "can't"
+    ],
+    "okay": [
+      "okay",
+      "ok",
+      "alright",
+      "alrighty"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "base": "./en_US.json",
+  "available": [
+    "en_US"
+  ]
+}
